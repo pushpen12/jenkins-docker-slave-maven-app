@@ -22,6 +22,7 @@ RUN apt-get update && \
 # Set password for the jenkins user (you may want to alter this).
     echo "jenkins:jenkins" | chpasswd && \
     mkdir /home/jenkins/.m2
+RUN chown -R jenkins:jenkins /home/jenkins/.m2/
 
 # Copy authorized keys
 # COPY .ssh/authorized_keys /home/jenkins/.ssh/authorized_keys
