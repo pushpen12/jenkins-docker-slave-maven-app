@@ -12,8 +12,8 @@ RUN apt-get update && \
     apt-get install -qy openssh-server && \
     sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd && \
     mkdir -p /var/run/sshd && \
-# Install JDK 8 (latest stable edition at 2019-04-01)
-    apt-get install -qy openjdk-8-jdk && \
+# Install JDK 11
+    apt-get install -qy openjdk-11-jdk && \
 # Install maven
     apt-get install -qy maven && \
 # Cleanup old packages
@@ -25,10 +25,10 @@ RUN apt-get update && \
     mkdir /home/jenkins/.m2
 
 # Copy authorized keys
-COPY .ssh/authorized_keys /home/jenkins/.ssh/authorized_keys
+# COPY .ssh/authorized_keys /home/jenkins/.ssh/authorized_keys
 
-RUN chown -R jenkins:jenkins /home/jenkins/.m2/ && \
-    chown -R jenkins:jenkins /home/jenkins/.ssh/
+# RUN chown -R jenkins:jenkins /home/jenkins/.m2/ && \
+#    chown -R jenkins:jenkins /home/jenkins/.ssh/
 
 # Disable public key-based authentication
 RUN sed -i '/^#PubkeyAuthentication/s/^#//' /etc/ssh/sshd_config && \
