@@ -10,7 +10,6 @@ RUN apt-get update && \
     apt-get install -qy git && \
 # Install a basic SSH server
     apt-get install -qy openssh-server && \
-    sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd && \
     mkdir -p /var/run/sshd && \
 # Install JDK 11
     apt-get install -qy openjdk-11-jdk && \
