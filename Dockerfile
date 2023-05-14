@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-# main credit code goes to Bibin Wilson, I (Sayantan) customized some parts
+# main credit of the  code goes to Bibin Wilson, I (Sayantan) customized some parts
 # LABEL maintainer="Bibin Wilson <bibinwilsonn@gmail.com>"
 LABEL maintainer="Sayantan Samanta <sayantansamanta098@gmail.com>"
 
